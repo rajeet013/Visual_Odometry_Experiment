@@ -11,7 +11,7 @@ ds = 3  # 0: KITTI, 1: Malaga, 2: Parking, 3: Own Dataset
 # kitti_path = "F:/PycharmProjects/Visual Odometry Project/kitti"
 # malaga_path = "/path/to/malaga"
 # parking_path = "/path/to/parking"
-# own_dataset_path = "/path/to/own_dataset"
+own_dataset_path = "F:/PycharmProjects/Visual Odometry Project/GTA_Custom_Dataset"
 
 if ds == 0:
     assert 'kitti_path' in locals(), "F:/PycharmProjects/Visual Odometry Project/kitti"
@@ -40,7 +40,6 @@ elif ds == 2:
     ground_truth = np.loadtxt(os.path.join(parking_path, 'poses.txt'))
     ground_truth = ground_truth[:, [-9, -1]]
 elif ds == 3:
-    own_dataset_path = r"F:/PycharmProjects/Visual Odometry Project/GTA_Custom_Dataset"
     left_images = sorted(glob(os.path.join(own_dataset_path, '*.png')))
     if len(left_images) == 0:
         raise ValueError(f"No PNG images found in {own_dataset_path}. Check the folder!")
